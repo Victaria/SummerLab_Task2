@@ -2,7 +2,7 @@ package by.epamtc.string.task;
 
 public class Main {
     public static void main(String[] args) {
-        String mainStr = "Hey, It Is New String For Epam ii oi Training.";
+        String mainStr = "Hey, It Is  New String  For Epam  ii oi Training.";
 
         printSeparatedEvenAndOddCharacters(mainStr);
         printCountOfUpperAndLowerCasePercentage(mainStr);
@@ -32,7 +32,7 @@ public class Main {
         printStringWithReplacedSubstring(mainStr);
         printResultOfAddingVeryLongIntegers();
 
-        printResultOfDeletingWordsWithGivenLength(mainStr);
+        printResultOfDeletingWordsWithGivenLength(mainStr, 2);
         printResultOfRemovingExtraSpaces(mainStr);
         printResultOfHighlightingWords(mainStr);
     }
@@ -127,7 +127,7 @@ public class Main {
     }
 
     private static void printStringWithReplacedSpaceWithSymbol(String mainStr) {
-        System.out.println(mainStr.replace(" ", "*"));
+        System.out.println(mainStr.trim().replaceAll(" +", "*"));
     }
 
     private static void printStringWithReplacedLettersInLongestWord(String mainStr) {
@@ -146,6 +146,8 @@ public class Main {
     }
 
     private static void printLengthOfShortestWord(String mainStr) {
+        mainStr = mainStr.trim().replaceAll(" +", " ");
+
         String[] arr = mainStr.split(" ");
         int length = 100;
 
@@ -238,15 +240,27 @@ public class Main {
         System.out.println(result.reverse().toString());
     }
 
-    private static void printResultOfDeletingWordsWithGivenLength(String mainStr) {
+    private static void printResultOfDeletingWordsWithGivenLength(String mainStr, int length) {
+        String[] arr = mainStr.split(" ");
 
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i].length() != length){
+                stringBuilder.append(arr[i]);
+                stringBuilder.append(" ");
+            }
+        }
+        System.out.println(stringBuilder);
     }
 
     private static void printResultOfRemovingExtraSpaces(String mainStr) {
-
+        System.out.println(mainStr.trim().replaceAll(" +", " "));
     }
 
     private static void printResultOfHighlightingWords(String mainStr) {
-
+        mainStr = mainStr.trim().replaceAll(" +", " ");
+        for (String word : mainStr.split(" ")){
+            System.out.println(word);
+        }
     }
 }
