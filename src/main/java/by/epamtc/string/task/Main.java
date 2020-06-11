@@ -219,17 +219,15 @@ public class Main {
 
         int carry = 0;
 
-        for (int i = s1Length - 1; i>=0; i--)
-        {
-            int sum = ((int)(s1.charAt(i)-'0') +
-                    (int)(s2.charAt(i+diff)-'0') + carry);
+        for (int i = s1Length - 1; i >= 0; i--) {
+            int sum = ((int) (s1.charAt(i) - '0') +
+                    (int) (s2.charAt(i + diff) - '0') + carry);
             result.append((char) (sum % 10 + '0'));
             carry = sum / 10;
         }
 
-        for (int i = s2Length - s1Length - 1; i >= 0; i--)
-        {
-            int sum = ((int)(s2.charAt(i) - '0') + carry);
+        for (int i = s2Length - s1Length - 1; i >= 0; i--) {
+            int sum = ((int) (s2.charAt(i) - '0') + carry);
             result.append((char) (sum % 10 + '0'));
             carry = sum / 10;
         }
@@ -244,8 +242,8 @@ public class Main {
         String[] arr = mainStr.split(" ");
 
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < arr.length; i++){
-            if (arr[i].length() != length){
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].length() != length) {
                 stringBuilder.append(arr[i]);
                 stringBuilder.append(" ");
             }
@@ -259,7 +257,7 @@ public class Main {
 
     private static void printResultOfHighlightingWords(String mainStr) {
         mainStr = mainStr.trim().replaceAll(" +", " ");
-        for (String word : mainStr.split(" ")){
+        for (String word : mainStr.split(" ")) {
             System.out.println(word);
         }
     }
